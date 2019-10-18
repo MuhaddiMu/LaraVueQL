@@ -31,8 +31,8 @@ return [
          * To apply middleware on a field level, use the @middleware directive.
          */
         'middleware' => [
-            \Nuwave\Lighthouse\Support\Http\Middleware\AcceptJson::class,
             \Barryvdh\Cors\HandleCors::class,
+            \Nuwave\Lighthouse\Support\Http\Middleware\AcceptJson::class,
         ],
 
         /*
