@@ -8,8 +8,8 @@ class Category extends Model
 {
     protected $guarded = [];
 
-    public function Book(){
-        return $this->hasMany(App\Book);
+    public function Books(){
+        return $this->hasMany('App\Book');
     }
 }
  

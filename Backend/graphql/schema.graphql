@@ -7,7 +7,57 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
+
     Books: [Book] @all
+    Book(ID: ID @eq): Book @find
+
+    Categories: [Category] @all
+    Category(ID: ID @eq): Category @find
+
+    FeaturedBooks(featured: Boolean! @eq): [Book] @all
+
+    Search(Search: String!): [Book] 
+}
+
+type Mutation {
+    CreateCategory(
+        name: String! @rules(apply: ["required", "unique:categories,name"])
+    ): Category @create
+
+    UpdateCategory(
+        id: ID! @rules(apply: ["required"])
+        name: String @rules(apply: ["required", "unique:categories,name"])
+    ): Category @update
+
+    DeleteCateogory(
+        id: ID! @rules(apply: ["required"])
+    ): Category @delete
+
+    NewBook(
+        title: String! @rules(apply: ["required"])
+        author: String! @rules(apply: ["required"])
+        image: String
+        link: String
+        description: String
+        featured: Boolean
+        category_id: Int!
+    ): Book @create
+
+    UpdateBook(
+        id: ID! @rules(apply: ["required"])
+        title: String! @rules(apply: ["required"])
+        author: String! @rules(apply: ["required"])
+        image: String
+        link: String
+        description: String
+        featured: Boolean
+        category_id: Int!
+    ): Book @update
+
+    DeleteBook(
+        id: ID! @rules(apply: ["required"])
+    ): Book @delete
+
 }
 
 type User {
@@ -18,20 +68,19 @@ type User {
     updated_at: DateTime!
 }
 
-type Book {
-    id: ID!
-    title: String!
-    author: String!
-    image: String!
-    link: String
-    description: String
-    featured: Boolean
-    category: Category! @belongsTo    
-}
-
-
 type Category {
     id: ID!
     name: String!
     Books: [Book] @hasMany
+}
+
+type Book {
+    id: ID!
+    title: String!
+    author: String!
+    image: String
+    link: String
+    description: String
+    featured: Boolean
+    category: Category! @belongsTo  
 }
