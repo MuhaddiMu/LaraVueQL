@@ -7,7 +7,7 @@ import { createProvider } from './vue-apollo'
 Vue.config.productionTip = false
 
 new Vue({
-  apolloProvider: createProvider(),
   router,
+  apolloProvider: createProvider(),
   render: h => h(App)
 }).$mount('#app')

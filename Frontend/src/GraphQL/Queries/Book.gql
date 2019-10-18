@@ -1,0 +1,8 @@
+query($Parameter: ID!) {
+    Book(ID: $Parameter){
+        id 
+        title 
+        author
+        image
+    }
+}

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import App from './App'
+import Home from './Books.vue'
 
 Vue.use(Router)
 
@@ -11,7 +11,12 @@ export default new Router({
     {
       path: '/',
       name: 'Home',
-      component: App,
+      component: Home
+    },
+    {
+      path: '/Book/:ID',
+      name: 'Book',
+      component: () => import('./Book.vue')
     },
   ]
 })
