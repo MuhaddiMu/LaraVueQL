@@ -1,0 +1,8 @@
+query($Featured: Boolean!) {
+    FeaturedBooks(featured: $Featured){
+        id 
+        title 
+        author
+        image
+    }
+}
