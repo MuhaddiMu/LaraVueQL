@@ -1,0 +1,22 @@
+mutation(
+  $Title: String!
+  $Author: String!
+  $ImageURL: String
+  $Description: String
+  $Link: String
+  $Featured: Boolean
+  $Category: Int!
+) {
+  NewBook(
+    title: $Title
+    author: $Author
+    image: $ImageURL
+    link: $Description
+    description: $Link
+    featured: $Featured
+    category_id: $Category
+  ) {
+    id
+    title
+  }
+}
