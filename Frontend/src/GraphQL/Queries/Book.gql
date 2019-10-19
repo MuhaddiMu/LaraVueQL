@@ -1,8 +1,15 @@
 query($Parameter: ID!) {
-    Book(ID: $Parameter){
-        id 
-        title 
-        author
-        image
+  Book(ID: $Parameter) {
+    id
+    title
+    author
+    image
+    link
+    description
+    featured
+    category {
+      name
+      id
     }
+  }
 }

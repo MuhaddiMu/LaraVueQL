@@ -22,6 +22,11 @@ export default new Router({
       path: "/Book/:ID",
       name: "Book",
       component: () => import("./Book.vue")
+    },
+    {
+      path: "/Book/Edit/:ID",
+      name: "EditBook",
+      component: () => import("./EditBook.vue")
     }
   ]
 })
