@@ -3,5 +3,10 @@ module.exports = {
     extend: {}
   },
   variants: {},
-  plugins: []
+  plugins: [
+    require("tailwindcss/lib/plugins/container")({
+      center: true,
+      padding: true
+    })
+  ]
 }

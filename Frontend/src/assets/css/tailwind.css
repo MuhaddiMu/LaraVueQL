@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import "https://fonts.googleapis.com/css?family=Roboto:400,700";
 @tailwind base;
+a {
+  text-decoration: none;
+}
 @tailwind components;
 @tailwind utilities;
