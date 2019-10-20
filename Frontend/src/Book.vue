@@ -22,9 +22,8 @@
             </div>
             <div class="my-12">
               <a
-                href="`${Book.link}`"
                 target="_blank"
-                class="bg-purple-700 text-white rounded px-4 py-4 mr-4  hover:bg-purple-600"
+                class="bg-purple-700 text-white rounded px-4 py-4 mr-4 hover:bg-purple-600"
                 >View Book</a
               >
             </div>
@@ -49,6 +48,11 @@
 <script>
 import DeleteBook from "./GraphQL/Mutations/DeleteBook.gql"
 export default {
+  data() {
+    return {
+      Book: []
+    }
+  },
   methods: {
     DeleteBook(ID) {
       this.$apollo
