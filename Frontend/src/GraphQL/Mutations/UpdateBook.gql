@@ -13,8 +13,8 @@ mutation(
     title: $Title
     author: $Author
     image: $ImageURL
-    link: $Description
-    description: $Link
+    link: $Link
+    description: $Description
     featured: $Featured
     category_id: $Category
   ) {
