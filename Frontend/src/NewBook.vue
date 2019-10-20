@@ -1,21 +1,21 @@
 <template>
-  <div class="create">
-    <h1>Add New Book</h1>
+  <div class="create py-10 px-10">
+    <h1 class="mb-4">Add New Book</h1>
     <form action="" method="post" @submit.prevent="AddBook">
       <div class="form-group">
-        <label for="Title">Title </label>
+        <label class="font-bold mb-2" for="Title">Title </label>
         <input v-model="Title" type="text" name="Title" />
       </div>
       <div class="form-group">
-        <label for="Author">Author </label>
+        <label class="font-bold mb-2" for="Author">Author </label>
         <input v-model="Author" type="text" name="Author" />
       </div>
       <div class="form-group">
-        <label for="ImageURL">ImageURL </label>
+        <label class="font-bold mb-2" for="ImageURL">ImageURL </label>
         <input v-model="ImageURL" type="text" name="ImageURL" />
       </div>
       <div class="form-group">
-        <label for="Description">Description </label>
+        <label class="font-bold mb-2" for="Description">Description </label>
         <textarea
           v-model="Description"
           name="Description"
@@ -24,15 +24,15 @@
         ></textarea>
       </div>
       <div class="form-group">
-        <label for="Link">Link </label>
+        <label class="font-bold mb-2" for="Link">Link </label>
         <input v-model="Link" type="text" name="Link" />
       </div>
       <div class="form-group">
-        <label for="Featured">Featured </label>
+        <label class="font-bold mb-2" for="Featured">Featured </label>
         <input v-model="Featured" type="checkbox" name="Featured" />
       </div>
       <div class="form-group">
-        <label for="Featured">
+        <label class="font-bold mb-2" for="Featured">
           <ApolloQuery :query="require('./GraphQL/Queries/Categories.gql')">
             <!-- The result will automatically updated -->
             <template slot-scope="{ result: { data, loading }, isLoading }">
@@ -109,8 +109,11 @@ export default {
 .form-group {
   margin-top: 16px;
 }
-input[type="text"] {
+input[type="text"],
+textarea {
   padding: 10px 15px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
 }
 button {
   padding: 16px;
@@ -118,5 +121,8 @@ button {
   color: white;
   border-radius: 5px;
   font-size: 16px;
+}
+label {
+  display: block;
 }
 </style>
