@@ -15,6 +15,7 @@
         "laravel/framework": "^6.0",
         "laravel/passport": "^7.5",
         "laravel/tinker": "^1.0",
+        "laravel/ui": "^1.1",
         "mll-lab/laravel-graphql-playground": "^1.1",
         "nuwave/lighthouse": "^4.5"
     },
