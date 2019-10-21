@@ -1,5 +1,6 @@
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-01-01 13:00:00`."
-scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
 "A date string with format `Y-m-d`, e.g. `2011-05-23`."
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
@@ -16,7 +17,9 @@ type Query {
 
     FeaturedBooks(featured: Boolean! @eq): [Book] @all
 
-    Search(Search: String!): [Book] 
+    Search(Search: String!): [Book]
+
+    Me: User @middleware(checks: ["auth:api"]) @auth
 }
 
 type Mutation {
@@ -29,9 +32,7 @@ type Mutation {
         name: String @rules(apply: ["required", "unique:categories,name"])
     ): Category @update
 
-    DeleteCateogory(
-        id: ID! @rules(apply: ["required"])
-    ): Category @delete
+    DeleteCateogory(id: ID! @rules(apply: ["required"])): Category @delete
 
     NewBook(
         title: String! @rules(apply: ["required"])
@@ -54,10 +55,7 @@ type Mutation {
         category_id: Int!
     ): Book @update
 
-    DeleteBook(
-        id: ID! @rules(apply: ["required"])
-    ): Book @delete
-
+    DeleteBook(id: ID! @rules(apply: ["required"])): Book @delete
 }
 
 type User {
@@ -82,5 +80,13 @@ type Book {
     link: String
     description: String
     featured: Boolean
-    category: Category! @belongsTo  
+    category: Category! @belongsTo
+}
+
+type AuthPayload {
+    access_token: String!
+    refresh_token: String!
+    expires_in: Int!
+    token_type: String!
+    user: User!
 }
