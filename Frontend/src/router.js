@@ -32,6 +32,11 @@ export default new Router({
       path: "/Auth",
       name: "Auth",
       component: () => import("./Authentication.vue")
+    },
+    {
+      path: "/User",
+      name: "User",
+      component: () => import("./User.vue")
     }
   ]
 })
