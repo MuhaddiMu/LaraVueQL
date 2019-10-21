@@ -27,6 +27,11 @@ export default new Router({
       path: "/Book/Edit/:ID",
       name: "EditBook",
       component: () => import("./EditBook.vue")
+    },
+    {
+      path: "/Auth",
+      name: "Auth",
+      component: () => import("./Authentication.vue")
     }
   ]
 })
