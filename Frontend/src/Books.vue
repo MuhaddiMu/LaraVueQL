@@ -2,8 +2,7 @@
   <div>
     <div class="hero bg-gray-300 mb-24">
       <div
-        class="ml-10 mr-10 flex-col lg:flex-row flex  lg:justify-between py-10"
-      >
+        class="ml-10 mr-10 flex-col lg:flex-row flex  lg:justify-between py-10">
         <div class="mt-10">
           <h1 class="lg:w-3/4 w-full mb-4 text-4xl font-bold">
             Book Recommendation site built with GraphQL
